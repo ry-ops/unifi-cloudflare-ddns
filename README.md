@@ -5,10 +5,6 @@
 [![Dependabot Updates](https://github.com/willswire/unifi-ddns/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/willswire/unifi-ddns/actions/workflows/dependabot/dependabot-updates)
 [![Deploy](https://github.com/willswire/unifi-ddns/actions/workflows/deploy.yml/badge.svg)](https://github.com/willswire/unifi-ddns/actions/workflows/deploy.yml)
 
-New Start
-
-# 🌩️ Cloudflare DDNS for UniFi OS
-
 A Cloudflare Worker script that enables UniFi devices (e.g., UDM-Pro, USG) to dynamically update DNS A/AAAA records on Cloudflare.
 
 > **Note:** This is a fork of [willswire/unifi-ddns](https://github.com/willswire/unifi-ddns). Check out the original project for updates and community support.
