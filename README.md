@@ -5,7 +5,13 @@
 [![Dependabot Updates](https://github.com/willswire/unifi-ddns/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/willswire/unifi-ddns/actions/workflows/dependabot/dependabot-updates)
 [![Deploy](https://github.com/willswire/unifi-ddns/actions/workflows/deploy.yml/badge.svg)](https://github.com/willswire/unifi-ddns/actions/workflows/deploy.yml)
 
+New Start
+
+# 🌩️ Cloudflare DDNS for UniFi OS
+
 A Cloudflare Worker script that enables UniFi devices (e.g., UDM-Pro, USG) to dynamically update DNS A/AAAA records on Cloudflare.
+
+> **Note:** This is a fork of [willswire/unifi-ddns](https://github.com/willswire/unifi-ddns). Check out the original project for updates and community support.
 
 ## Why Use This?
 
@@ -16,14 +22,20 @@ UniFi devices do not natively support Cloudflare as a DDNS provider. This script
 ### 1. **Deploy the Cloudflare Worker**
 
 #### **Option 1: Click to Deploy**
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/willswire/unifi-ddns)
+
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/ry-ops/unifi-ddns)
 
 1. Click the button above.
 2. Complete the deployment.
 3. Note the `*.workers.dev` route.
 
 #### **Option 2: Deploy with Wrangler CLI**
-1. Clone this repository.
+
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/ry-ops/unifi-ddns.git
+   cd unifi-ddns
+   ```
 2. Install [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/).
 3. Run:
    ```sh
@@ -55,4 +67,27 @@ UniFi devices do not natively support Cloudflare as a DDNS provider. This script
 
 ## 🛠️ **Testing & Troubleshooting**
 
-Using this script with various Ubiquiti devices and different UniFi software versions can introduce unique challenges. If you encounter issues, start by checking the FAQ in `/docs/faq.md`. If you don’t find a solution, you can ask a question on the [discussions page](https://github.com/willswire/unifi-ddns/discussions/new?category=q-a). If the problem persists, please raise an issue [here](https://github.com/willswire/unifi-ddns/issues).
+### Verify It's Working
+
+1. Check the DDNS status in UniFi (Settings > Internet > WAN)
+2. Verify the DNS record in Cloudflare matches your public IP
+3. Monitor the worker in Cloudflare Dashboard (Workers & Pages > your worker > Logs)
+
+### Common Issues
+
+Using this script with various Ubiquiti devices and different UniFi software versions can introduce unique challenges. If you encounter issues:
+
+- Check that you omitted `https://` from the Server field
+- Verify your API token has correct permissions (Edit zone DNS)
+- Ensure the hostname exactly matches what you want in Cloudflare
+- Confirm `%i` and `%h` placeholders are in the Server URL
+
+For more help, refer to the [original project's FAQ](https://github.com/willswire/unifi-ddns/blob/main/docs/faq.md) or [discussions](https://github.com/willswire/unifi-ddns/discussions).
+
+## 📝 **License**
+
+This project maintains the same license as the original [willswire/unifi-ddns](https://github.com/willswire/unifi-ddns) project.
+
+## 🙏 **Credits**
+
+Original project by [willswire](https://github.com/willswire). This fork is maintained by [ry-ops](https://github.com/ry-ops) for personal use.
