@@ -1,4 +1,6 @@
-# 🌩️ Cloudflare DDNS for UniFi OS
+<img src="https://github.com/ry-ops/unifi-cloudflare-ddns/blob/main/unifi-cloudflare-ddns.png" width="100%">
+
+# Cloudflare DDNS for UniFi OS
 
 [![CodeQL](https://github.com/willswire/unifi-ddns/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/willswire/unifi-ddns/actions/workflows/github-code-scanning/codeql)
 [![Code Coverage](https://github.com/willswire/unifi-ddns/actions/workflows/coverage.yml/badge.svg)](https://github.com/willswire/unifi-ddns/actions/workflows/coverage.yml)
