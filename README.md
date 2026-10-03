@@ -21,7 +21,7 @@ UniFi devices do not natively support Cloudflare as a DDNS provider. This script
 
 #### **Option 1: Click to Deploy**
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/ry-ops/unifi-ddns)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/ry-ops/unifi-cloudflare-ddns)
 
 1. Click the button above.
 2. Complete the deployment.
@@ -31,8 +31,8 @@ UniFi devices do not natively support Cloudflare as a DDNS provider. This script
 
 1. Clone this repository:
    ```sh
-   git clone https://github.com/ry-ops/unifi-ddns.git
-   cd unifi-ddns
+   git clone https://github.com/ry-ops/unifi-cloudflare-ddns.git
+   cd unifi-cloudflare-ddns
    ```
 2. Install [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/).
 3. Run:
@@ -89,3 +89,8 @@ This project maintains the same license as the original [willswire/unifi-ddns](h
 ## 🙏 **Credits**
 
 Original project by [willswire](https://github.com/willswire). This fork is maintained by [ry-ops](https://github.com/ry-ops) for personal use.
+
+<!-- org-footer -->
+---
+
+<p align="center"><sub>Part of <a href="https://github.com/ry-ops">ry-ops</a> · building the pipes between infrastructure, automation, and observability · built by <a href="https://github.com/ry-ops">ry-ops</a></sub></p>
