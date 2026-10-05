@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="t d">
+  <title id="t">Cloudflare DDNS for UniFi OS</title>
+  <desc id="d">When your public IP changes, your UniFi device posts to the Cloudflare Worker at /update with your IP and hostname and a Cloudflare API token as basic auth; the Worker verifies the token, finds the single scoped zone and matching record, and updates the A or AAAA record so your hostname keeps pointing home.</desc>
+  <defs><linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="#F6821F"/><stop offset=".5" stop-color="#ffb648"/><stop offset="1" stop-color="#00a2ff"/></linearGradient></defs>
+  <style>
+    text { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill:#eef1f6; }
+    .muted { fill:#93a0b4; } .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    @keyframes s1 { 0%,3.00% { opacity:0 } 7.00%,27.00% { opacity:1 } 30.00%,100% { opacity:0 } } .s1 { animation:s1 10.0s infinite; }
+    @keyframes s2 { 0%,26.00% { opacity:0 } 30.00%,51.00% { opacity:1 } 54.00%,100% { opacity:0 } } .s2 { animation:s2 10.0s infinite; }
+    @keyframes s3 { 0%,50.00% { opacity:0 } 54.00%,73.00% { opacity:1 } 76.00%,100% { opacity:0 } } .s3 { animation:s3 10.0s infinite; }
+    @keyframes s4 { 0%,72.00% { opacity:0 } 76.00%,95.00% { opacity:1 } 98.00%,100% { opacity:0 } } .s4 { animation:s4 10.0s infinite; }
+    @keyframes p1 { 0%{offset-distance:0%;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{offset-distance:100%;opacity:0} } .p1{animation:p1 3.4s linear infinite;offset-path:path('M250 180 H 360')}
+    @media (prefers-reduced-motion: reduce) { * { animation:none !important; opacity:1 !important; } }
+  </style>
+  <rect width="960" height="400" rx="20" fill="#0e1117"/>
+  <text x="40" y="54" font-size="28" font-weight="800" style="fill:url(#title)">Cloudflare DDNS for UniFi OS</text>
+  <text x="42" y="82" font-size="15" class="muted">Your UniFi gateway keeps a Cloudflare DNS record pointed at your changing home IP.</text>
+
+  <!-- UniFi device -->
+  <rect x="40" y="130" width="210" height="150" rx="12" fill="#121a26" stroke="#24303f"/>
+  <text x="60" y="156" font-size="13" font-weight="800">🛜 UniFi gateway</text>
+  <text x="60" y="175" font-size="10.5" class="muted">UDM-Pro · USG</text>
+  <g class="s1"><rect x="58" y="186" width="174" height="34" rx="7" fill="#231812"/><text x="72" y="208" font-size="11" style="fill:#ffcf7a">public IP changed → 203.0.113.42</text></g>
+  <g class="s2"><rect x="58" y="226" width="174" height="44" rx="7" fill="#15202a"/><text x="72" y="245" font-size="9.5" class="mono muted">POST /update?ip=%i</text><text x="72" y="260" font-size="9.5" class="mono muted">&amp;hostname=%h  (basic auth)</text></g>
+
+  <!-- worker -->
+  <rect x="360" y="130" width="250" height="150" rx="12" fill="#201810" stroke="#F6821F" stroke-opacity=".55"/>
+  <text x="380" y="156" font-size="13" font-weight="800" style="fill:#ffb15a">Cloudflare Worker</text>
+  <text x="380" y="175" font-size="10.5" class="muted">*.workers.dev/update</text>
+  <g class="s3">
+  <text x="380" y="200" font-size="11" class="muted">① verify API token (basic auth)</text>
+  <text x="380" y="222" font-size="11" class="muted">② list zones — must be exactly one</text>
+  <text x="380" y="244" font-size="11" class="muted">③ find the matching A/AAAA record</text>
+  <text x="380" y="266" font-size="11" class="muted">④ PATCH it to the new IP</text>
+  </g>
+  <circle class="p1" r="5" fill="#F6821F"/>
+
+  <!-- cloudflare DNS -->
+  <rect x="720" y="130" width="200" height="150" rx="12" fill="#101a24" stroke="#00a2ff" stroke-opacity=".5"/>
+  <text x="740" y="156" font-size="13" font-weight="800" style="fill:#7cc4ff">Cloudflare DNS</text>
+  <text x="740" y="175" font-size="10.5" class="muted">one scoped zone</text>
+  <g class="s4"><rect x="738" y="188" width="164" height="76" rx="8" fill="#0e1f1a" stroke="#1f6e4e"/>
+    <text x="752" y="210" font-size="10.5" class="mono">home.example.com</text>
+    <text x="752" y="230" font-size="10.5" class="mono muted">A  →  <tspan style="fill:#8fe6a6">203.0.113.42</tspan></text>
+    <text x="752" y="250" font-size="9.5" style="fill:#8fe6a6">✓ updated · TTL auto</text></g>
+
+  <line x1="610" y1="200" x2="720" y2="200" stroke="#24303f" stroke-width="2" stroke-dasharray="3 5"/>
+
+  <text x="40" y="320" font-size="12.5" class="muted">No native Cloudflare DDNS in UniFi — this Worker is the bridge. Token is scoped to <tspan style="fill:#cdd6e6">one zone</tspan>, Edit-zone-DNS only.</text>
+  <text x="40" y="342" font-size="12" class="muted"><tspan class="mono" style="fill:#cdd6e6">ip=auto</tspan> uses the client IP · the record must already exist · A for IPv4, AAAA for IPv6, chosen automatically.</text>
+  <text x="40" y="364" font-size="10.5" class="muted">A fork of willswire/unifi-ddns, maintained for personal use.</text>
+</svg>
