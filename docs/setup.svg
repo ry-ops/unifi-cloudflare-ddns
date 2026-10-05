@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="t d">
+  <title id="t">Three-step setup</title>
+  <desc id="d">Deploy the Cloudflare Worker, create an Edit-zone-DNS API token scoped to one zone, then configure UniFi OS Dynamic DNS with service custom, your Cloudflare email as username, the API token as password, and the worker route as the server.</desc>
+  <defs><linearGradient id="title" x1="0" x2="1"><stop offset="0" stop-color="#F6821F"/><stop offset="1" stop-color="#00a2ff"/></linearGradient></defs>
+  <style>
+    text { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill:#eef1f6; }
+    .muted { fill:#93a0b4; } .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    @keyframes s0 { 0%,3.33% { opacity:0; transform:translateY(10px) } 10.00%,100% { opacity:1; transform:translateY(0) } } .s0 { animation:s0 9.0s infinite; }
+    @keyframes s1 { 0%,11.11% { opacity:0; transform:translateY(10px) } 17.78%,100% { opacity:1; transform:translateY(0) } } .s1 { animation:s1 9.0s infinite; }
+    @keyframes s2 { 0%,18.89% { opacity:0; transform:translateY(10px) } 25.56%,100% { opacity:1; transform:translateY(0) } } .s2 { animation:s2 9.0s infinite; }
+    @media (prefers-reduced-motion: reduce) { * { animation:none !important; opacity:1 !important; transform:none !important; } }
+  </style>
+  <rect width="960" height="400" rx="20" fill="#0e1117"/>
+  <text x="40" y="54" font-size="26" font-weight="800" style="fill:url(#title)">Three steps to set it up</text>
+  <text x="42" y="80" font-size="14" class="muted">Deploy, tokenize, point UniFi at it — then forget about it.</text>
+  <g class="s0"><rect x="40" y="116" width="880" height="76" rx="12" fill="#121825" stroke="#F6821F" stroke-opacity=".45"/>
+  <circle cx="78" cy="154" r="20" fill="#F6821F" fill-opacity=".16" stroke="#F6821F"/>
+  <text x="78" y="161" text-anchor="middle" font-size="20" font-weight="800" style="fill:#F6821F">1</text>
+  <text x="120" y="144" font-size="15" font-weight="800">Deploy the Worker</text>
+  <text x="120" y="164" font-size="11" class="muted">Click-to-deploy, or wrangler:</text>
+  <text x="120" y="181" font-size="10.5" class="mono muted">npm i · wrangler login · wrangler deploy</text>
+  <text x="900" y="181" text-anchor="end" font-size="10.5" class="mono" style="fill:#F6821F">note your *.workers.dev route</text></g><g class="s1"><rect x="40" y="206" width="880" height="76" rx="12" fill="#121825" stroke="#9b59ff" stroke-opacity=".45"/>
+  <circle cx="78" cy="244" r="20" fill="#9b59ff" fill-opacity=".16" stroke="#9b59ff"/>
+  <text x="78" y="251" text-anchor="middle" font-size="20" font-weight="800" style="fill:#9b59ff">2</text>
+  <text x="120" y="234" font-size="15" font-weight="800">Create an API token</text>
+  <text x="120" y="254" font-size="11" class="muted">Cloudflare → Profile → API Tokens</text>
+  <text x="120" y="271" font-size="10.5" class="mono muted">“Edit zone DNS” template</text>
+  <text x="900" y="271" text-anchor="end" font-size="10.5" class="mono" style="fill:#9b59ff">scope to ONE zone, save it</text></g><g class="s2"><rect x="40" y="296" width="880" height="76" rx="12" fill="#121825" stroke="#00a2ff" stroke-opacity=".45"/>
+  <circle cx="78" cy="334" r="20" fill="#00a2ff" fill-opacity=".16" stroke="#00a2ff"/>
+  <text x="78" y="341" text-anchor="middle" font-size="20" font-weight="800" style="fill:#00a2ff">3</text>
+  <text x="120" y="324" font-size="15" font-weight="800">Configure UniFi DDNS</text>
+  <text x="120" y="344" font-size="11" class="muted">Settings → Internet → WAN → Dynamic DNS</text>
+  <text x="120" y="361" font-size="10.5" class="mono muted">Service: custom · User: CF email · Pass: token</text>
+  <text x="900" y="361" text-anchor="end" font-size="10.5" class="mono" style="fill:#00a2ff">Server: [route]/update?ip=%i&amp;hostname=%h</text></g>
+</svg>
